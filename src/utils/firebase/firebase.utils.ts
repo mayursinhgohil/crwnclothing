@@ -70,12 +70,27 @@ export const addCollectionAndDocuments = async<T extends ObjectToAdd> (collectio
     console.log('done');
 }
 
-export const getCategoriesAndDocuments = async () => {
+type CategoryItem = {
+    id: number;
+    imageUrl: string;
+    name: string;
+    price: string;
+  };
+
+type CategoryData = {
+    title: string;
+    imageUrl: string;
+    items: CategoryItem[];
+};
+
+export const getCategoriesAndDocuments = async (): Promise<CategoryData[]>  => {
     const collectionRef = collection(db, 'categories');
     const q = query(collectionRef);
 
     const querySnapshot = await getDocs(q);
-    return querySnapshot.docs.map((doc) => doc.data());
+    return querySnapshot.docs.map(
+        (doc) => doc.data() as CategoryData
+    );
 }
 
 export type AdditionalInformation = {

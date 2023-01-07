@@ -1,6 +1,5 @@
 import {
   CATEGORIES_ACTION_TYPES,
-  CategoryItem,
   Category,
 } from "./categories.types";
 
@@ -32,13 +31,13 @@ export type CategoryAction =
 export const fetchCategoriesStart = withMatcher((): FetchCategoriesStart =>
   createAction(CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START));
 
-export const fetchCategoriesSuccess = withMatcher((
-  categoriesArray: Category[]
-): FetchCategoriesSuccess =>
-  createAction(
-    CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_SUCCESS,
-    categoriesArray
-  ));
+export const fetchCategoriesSuccess = withMatcher(
+  (categoriesArray: Category[]) =>
+    createAction(
+      CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_SUCCESS,
+      categoriesArray
+    )
+);
 
 export const fetchCategoriesFailed = withMatcher((error: Error): FetchCategoriesFailed =>
   createAction(CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_FAILED, error));
