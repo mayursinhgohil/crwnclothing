@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import FormInput from "../form-input/form-input.component"
 import Button from "../button/button.component"
 import { googleSignInStart, emailSignInStart } from '../../store/user/user.action'
+import { BUTTON_TYPE_CLASSES } from "../button/button.component";
 
 import './sign-in-form.styles.scss'
 
@@ -66,8 +67,8 @@ const SignInForm = () => {
                     value={password}
                     name="password" />
                 <div className="buttons-container">
-                    <Button type="submit" >Sign In</Button>
-                    <Button buttonType={"google"} onClick={signInWithGoogle} type="button" >Google sign in</Button>
+                    <Button type="submit" buttonType={BUTTON_TYPE_CLASSES.base}>Sign In</Button>
+                    <Button buttonType={BUTTON_TYPE_CLASSES.google} onClick={signInWithGoogle} type="button" >Google sign in</Button>
                 </div>
             </form>
         </div>

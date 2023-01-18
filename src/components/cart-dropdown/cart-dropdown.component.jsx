@@ -5,6 +5,7 @@ import { selectCartItems } from '../../store/cart/cart.selector'
 import Button from '../button/button.component'
 import CartItem from '../cart-item/cart-item.component'
 import './cart-dropdown.styles.scss'
+import { BUTTON_TYPE_CLASSES } from "../button/button.component";
 
 const CartDropdown = () => {
 
@@ -25,7 +26,7 @@ const CartDropdown = () => {
                     : <span className='empty-message'>Your cart is empty</span>
                 }
             </div>
-            <Button onClick={goToCheckoutHandler}>Go to checkout</Button>
+            <Button onClick={goToCheckoutHandler} buttonType={BUTTON_TYPE_CLASSES.base}>Go to checkout</Button>
         </div>
     )
 }
